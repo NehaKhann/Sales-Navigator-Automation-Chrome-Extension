@@ -9,11 +9,11 @@
 	"icons": {
 		"128": "logo.png"
 	},
-	"permissions": ["tabs"],
+	"permissions": ["tabs", "storage"],
 	"content_scripts": [
 		{
 			"matches": ["https://www.linkedin.com/sales/search/*"],
-			"js": ["content-scripts/readProfileUrls.js"]
+			"js": ["content-scripts/scrapProfileUrls.js"]
 		}
 	]
 }
