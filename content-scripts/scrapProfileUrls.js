@@ -1,13 +1,49 @@
-var readyStateCheckInterval = setInterval(function () {
+var readyStateCheckInterval1 = setInterval(async function () {
+	if (document.readyState === 'complete') {
+		let searchResultContainer = document.querySelector(
+			'#search-results-container'
+		);
+		if (searchResultContainer) {
+			clearInterval(readyStateCheckInterval1);
+			console.log(window.innerHeight);
+			console.log('scroll height', searchResultContainer.scrollHeight);
+
+			let i = 0;
+
+			let scrollingTimeInterval = setInterval(() => {
+				console.log('scrolling...', i);
+				searchResultContainer.scrollBy(0, window.innerHeight);
+				i += window.innerHeight;
+				if (i > searchResultContainer.scrollHeight) {
+					clearInterval(scrollingTimeInterval);
+				}
+			}, 1000);
+		}
+	}
+}, 10);
+
+var readyStateCheckInterval = setInterval(async function () {
 	if (document.readyState === 'complete') {
 		let hash = window.location.hash;
 		if (hash.includes('#automate')) {
-			// setTimeout(() => {
-			// 	console.log('scrolling....');
-			// 	window.scrollTo(0, document.body.scrollHeight);
-			// }, 175000);
+			// console.log('reading btn');
 
-			// console.log('scrolled....');
+			// let btn = document.querySelector(
+			// 	'#content-main > div > div > div > div > div > div > label > span'
+			// );
+
+			// btn.addEventListener(
+			// 	'click',
+			// 	() => {
+			// 		console.log('adding event listner');
+			// 		window.scrollBy(0, window.innerHeight);
+			// 		console.log('added');
+			// 	},
+			// 	{ passive: false }
+			// );
+
+			// console.log('clicking on btn');
+			// btn.click();
 
 			// scrapping a tags
 			let aTags = document.querySelectorAll(

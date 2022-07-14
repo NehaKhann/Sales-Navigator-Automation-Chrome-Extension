@@ -1,11 +1,19 @@
+const emailEl = document.getElementById('email');
+const passwordEl = document.getElementById('password');
+const messageEl = document.getElementById('message');
 const pageNavDelayEl = document.getElementById('page-nav-delay');
 const typingDelayEl = document.getElementById('typing-delay');
+
 const automateBtn = document.getElementById('automate-btn');
 
 automateBtn.addEventListener('click', function () {
+	let email = emailEl.value;
+	let password = passwordEl.value;
+	let message = messageEl.value;
 	let pageNavDelay = +pageNavDelayEl.value * 1000;
 	let typingDelay = +typingDelayEl.value * 1000;
 
+	console.log('email: ', email, 'password: ', password, 'message: ', message);
 	console.log('delays:  ', pageNavDelay, typingDelay);
 
 	chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
@@ -20,9 +28,9 @@ automateBtn.addEventListener('click', function () {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
-				email: '',
-				password: '',
-				message: 'Hey _FN_! Just adding you to grow my LinkedIn Network',
+				email: email,
+				password: password,
+				message: message,
 				profiles: data.urlsObjArr,
 				pageNavigationDelay: pageNavDelay,
 				typingDelay: typingDelay,

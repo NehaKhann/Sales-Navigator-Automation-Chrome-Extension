@@ -4,14 +4,41 @@
 	</head>
 	<body>
 		<h3>Sales Navigator Bot</h3>
-		<label
-			>Page Navigation delay
-			<input type="number" min="0" max="60" id="page-nav-delay"
-		/></label>
-		<label
-			>Typing delay <input type="number" min="0" max="60" id="typing-delay"
-		/></label>
-
+		<div>
+			<label>LinkedIn login Email <input type="email" id="email" /></label>
+		</div>
+		<div>
+			<label
+				>LinkedIn login Password <input type="password" id="password"
+			/></label>
+		</div>
+		<div>
+			<label
+				>Connection Message
+				<textarea id="message" rows="4" cols="38">
+Hey _FN_! Just adding you to grow my LinkedIn Network</textarea
+				>
+			</label>
+			<p id="msginst">
+				Use <br />
+				_FN_ for fullName <br />
+				_CN_ for companyName <br />
+				_TI_ for jobTitle <br />
+				_LO_ for location <br />
+			</p>
+		</div>
+		<div>
+			<label
+				>Page Navigation delay (in seconds)
+				<input type="number" min="0" max="60" id="page-nav-delay"
+			/></label>
+		</div>
+		<div>
+			<label
+				>Typing delay (in seconds)
+				<input type="number" min="0" max="60" id="typing-delay"
+			/></label>
+		</div>
 		<button id="automate-btn">AUTOMATE</button>
 		<script src="index.js"></script>
 	</body>
